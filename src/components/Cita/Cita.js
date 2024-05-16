@@ -1,11 +1,16 @@
-import "./Cita.css"
+import React from "react";
+import "./Cita.css";
 import { Boton } from "../Botón/Boton";
 
-export function Cita({mascota, dueño, fecha, hora, sintomas}){
+export function Cita({ citas, setCitas, mascota, dueño, fecha, hora, sintomas }) {
 
-    //function eliminarCita(){
-      //return 
-    //}
+  const eliminarCita = (masc) => {
+    console.log("Eliminar cita:", mascota);
+    const nuevoArrayCitas = citas.filter(c => c.masc !== masc);
+    setCitas(nuevoArrayCitas);
+    console.log("hola" + nuevoArrayCitas);
+
+}
 
     return (<div className="cita">
     <p>Mascota: <span>{mascota}</span></p>
@@ -13,6 +18,7 @@ export function Cita({mascota, dueño, fecha, hora, sintomas}){
     <p>Fecha: <span>{fecha}</span></p>
     <p>Hora: <span>{hora}</span></p>
     <p>Sintomas: <span>{sintomas}</span></p>
-    <Boton onClick='eliminarCita()' txt="Eliminar x" clase="button elimnar u-full-width"/>
+    <Boton onClick={eliminarCita(mascota)} txt="Eliminar x" clase="button elimnar u-full-width"/>
   </div>);
+
 }
