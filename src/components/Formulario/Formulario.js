@@ -1,19 +1,19 @@
 import "./Formulario.css"
-import {InputsFormulario} from "../InputsFormulario/InputsFormulario"
+
 import {Boton} from "../Botón/Boton";
-import { getElementError } from "@testing-library/react";
+//import { getElementError } from "@testing-library/react";
 
 export function Formulario({citas, setCitas}){
     function handleSubmit(e){
         e.preventDefault();
         console.log("Formulario enviado");
-    
+            
         let nuevaCita = {
-            mascota : document.getElementById('mascota'),
-            dueño : document.getElementById('dueño'),
-            fecha : document.getElementById('fecha'),
-            hora : document.getElementById('hora'),
-            sintomas : document.getElementById('sintomas')
+            mascota : document.getElementById('mascota').value,
+            dueño : document.getElementById('dueño').value,
+            fecha : document.getElementById('fecha').value,
+            hora : document.getElementById('hora').value,
+            sintomas : document.getElementById('sintomas').value
         };
     
         let citasNuevas = [...citas, nuevaCita];
@@ -22,11 +22,16 @@ export function Formulario({citas, setCitas}){
     
 
     return (<form onSubmit={handleSubmit}>
-        <InputsFormulario label="Nombre mascota" tipo="text" nombre="mascota" placeholder="Nombre mascota" id='mascota'/>
-        <InputsFormulario label="Nombre Dueño" tipo="text" nombre="dueño" placeholder="Nombre dueño de la mascota" id='dueño'/>
-        <InputsFormulario label="Fecha" tipo="date" nombre="fecha" placeholder="" id='fecha'/>
-        <InputsFormulario label="Hora" tipo="time" nombre="hora" placeholder="" id='hora'/>
-        <InputsFormulario label="Sintomas" tipo="text" nombre="sintomas" placeholder="" id='sintomas'/>
+        <label>Nombre mascota</label>
+          <input type="text" name="Nombre mascota" id="mascota" class="u-full-width" placeholder="Escriba" />
+        <label>Nombre dueño</label>
+          <input type="text" name="Nombre Dueño" id="dueño" class="u-full-width" placeholder="Escriba" />
+        <label>Fecha</label>
+          <input type="date" name="Fecha" id="fecha" class="u-full-width" placeholder="" />
+        <label>Hora</label>
+          <input type="time" name="Hora" id="hora" class="u-full-width" placeholder="" />
+        <label>Sintomas</label>
+          <input type="text" name="Sintomas" id="sintomas" class="u-full-width" placeholder="Escriba" />
         <Boton txt="Agregar cita" clase="u-full-width button-primary"/>
     </form>);
 }

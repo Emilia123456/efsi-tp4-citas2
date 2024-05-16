@@ -3,9 +3,9 @@ import { Boton } from "../Botón/Boton";
 
 export function Cita({mascota, dueño, fecha, hora, sintomas}){
 
-    function eliminarCita(){
-      return 
-    }
+    //function eliminarCita(){
+      //return 
+    //}
 
     return (<div className="cita">
     <p>Mascota: <span>{mascota}</span></p>
