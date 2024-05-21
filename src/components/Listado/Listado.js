@@ -2,11 +2,12 @@ import './Listado.css';
 import {Cita} from '../Cita/Cita.js'
 
 export function Listado({ citas, setCitas}) {
-    console.log(citas)
+   // console.log(citas)
     return (
         <>
-            {citas.map(item => (
+            {citas.map((item, id) => (
                 <Cita
+                    key = {id}
                     citas = {citas}
                     setCitas = {setCitas}
                     mascota={item.mascota}
@@ -14,6 +15,7 @@ export function Listado({ citas, setCitas}) {
                     fecha={item.fecha}
                     hora={item.hora}
                     sintomas={item.sintomas}
+                    id={id}
                 />
             ))}
         </>

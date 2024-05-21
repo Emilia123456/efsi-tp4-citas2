@@ -1,14 +1,20 @@
 import "./Formulario.css"
 
 import {Boton} from "../Botón/Boton";
+import { useState } from "react";
 //import { getElementError } from "@testing-library/react";
 
 export function Formulario({citas, setCitas}){
+    const [id,setId] = useState(0);
+  
     function handleSubmit(e){
         e.preventDefault();
         console.log("Formulario enviado");
             
+        setId(id+1);
+        
         let nuevaCita = {
+            id:id,
             mascota : document.getElementById('mascota').value,
             dueño : document.getElementById('dueño').value,
             fecha : document.getElementById('fecha').value,
@@ -18,8 +24,10 @@ export function Formulario({citas, setCitas}){
     
         let citasNuevas = [...citas, nuevaCita];
         setCitas(citasNuevas);
+        
     }
     
+    console.log(citas);
 
     return (<form onSubmit={handleSubmit}>
         <label>Nombre mascota</label>
